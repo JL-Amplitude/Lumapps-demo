@@ -40,7 +40,7 @@ npm run dev
 
 ## Deploy (GitHub Pages)
 
-1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Push to `main` (or run the *Deploy to GitHub Pages* workflow from the Actions tab).
+1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions** (not *Deploy from a branch* — that publishes the raw source and the page loads blank with a 404 on `/src/main.tsx`).
+2. Push to `main` or `feature/lumapps-site` (or run the *Deploy to GitHub Pages* workflow from the Actions tab).
 
 The build is fully static: `HashRouter` routes (`#/agents`), `base: "./"` in `vite.config.ts`, `.nojekyll` and a `404.html` fallback in `public/`.
