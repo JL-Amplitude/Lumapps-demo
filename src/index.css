@@ -10,5 +10,13 @@
   .input { @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100; }
   .label { @apply block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1.5; }
   .chip { @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium; }
+  .company-picker-trigger { @apply flex w-full items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 text-sm shadow-sm transition hover:border-brand-500/50 focus:outline-none focus-visible:border-brand-500 focus-visible:ring-4 focus-visible:ring-brand-100; }
+  .company-picker-trigger-open { @apply border-brand-500 ring-4 ring-brand-100; }
+  .company-picker-menu { @apply absolute left-0 right-0 top-full z-50 mt-2 rounded-2xl border border-brand-100 bg-white p-1.5 shadow-[0_16px_48px_-12px_rgba(15,31,92,0.24)]; }
+  .company-picker-options { max-height: min(22rem, 45dvh); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+  .company-picker-option { @apply m-0.5 flex cursor-pointer items-center gap-3 rounded-xl px-2.5 py-2.5 text-slate-700 transition-colors; }
+  .company-picker-option-active { @apply bg-slate-50; }
+  .company-picker-option-selected { @apply bg-brand-50 text-brand-700; }
+  .company-picker-option-selected.company-picker-option-active { @apply bg-brand-100/70; }
 }
 body { font-family: Inter, system-ui, sans-serif; color: #0e1430; }

@@ -5,6 +5,7 @@ import { ACCOUNTS, suiteLabel } from "../data/accounts";
 import { generateUserId, useSession, type LoginMethod, type WorkforceType } from "../lib/session";
 import { track, trackAnonymous } from "../lib/analytics";
 import Logo from "../components/Logo";
+import CompanyPicker from "../components/CompanyPicker";
 
 const FRONTLINE_METHODS: { id: LoginMethod; label: string; icon: typeof Smartphone }[] = [
   { id: "passwordless_sms", label: "SMS code", icon: Smartphone },
@@ -79,12 +80,7 @@ export default function Login() {
                     <input id="demo" type="number" min={1} className="input" value={demoNumber} onChange={(e) => setDemoNumber(Math.max(1, Number(e.target.value) || 1))} />
                   </div>
                 </div>
-                <div>
-                  <label className="label" htmlFor="company">Company</label>
-                  <select id="company" className="input" value={accountId} onChange={(e) => setAccountId(e.target.value)}>
-                    {ACCOUNTS.map((a) => <option key={a.account_id} value={a.account_id}>{a.account_name} — {a.industry}</option>)}
-                  </select>
-                </div>
+                <CompanyPicker value={accountId} onChange={setAccountId} />
                 <div>
                   <span className="label">Workforce type</span>
                   <div className="grid grid-cols-3 gap-2">

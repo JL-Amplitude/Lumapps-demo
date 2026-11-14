@@ -2,7 +2,7 @@ import { NavLink, Outlet, Link } from "react-router-dom";
 import { Home, Newspaper, Bot, CalendarClock, LayoutGrid, Plug } from "lucide-react";
 import { useSession } from "../lib/session";
 import KnowledgeSearch from "./KnowledgeSearch";
-import Logo from "./Logo";
+import CompanyLogo from "./CompanyLogo";
 
 const NAV = [
   { to: "/", label: "Home", icon: Home, end: true },
@@ -20,7 +20,7 @@ export default function Layout() {
     <div className="min-h-screen">
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 hidden w-60 flex-col border-r border-slate-200 bg-white px-4 py-5 md:flex">
-        <Link to="/" className="mb-8 px-2"><Logo /></Link>
+        <Link to="/" className="mb-8 px-2"><CompanyLogo account={session!.account} /></Link>
         <nav className="flex flex-1 flex-col gap-1">
           {[...NAV, { to: "/integrations", label: "Integrations", icon: Plug }].map(({ to, label, icon: Icon, ...rest }) => (
             <NavLink
@@ -44,7 +44,7 @@ export default function Layout() {
       <div className="md:pl-60">
         {/* Top bar */}
         <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-slate-200 bg-white/90 px-4 py-3 backdrop-blur md:px-8" style={{ top: "env(safe-area-inset-top, 0px)" }}>
-          <Link to="/" className="md:hidden"><Logo compact /></Link>
+          <Link to="/" className="md:hidden"><CompanyLogo account={session!.account} compact /></Link>
           <div className="flex-1"><KnowledgeSearch /></div>
           <Link to="/me" className="flex items-center gap-2" aria-label="My account">
             <span className="hidden text-right text-xs sm:block">
